@@ -1,0 +1,322 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//##############################################################################
+
+void equacao_soma (float a, float b, float c)
+{	
+	for (int x = 0; (a * x) <= c; x++)
+	{
+		for (int y = 0; (b * y) <= c; y++)
+		{
+			if (a * x + b * y == c)
+				printf("x = %d e y = %d\n", x, y);
+		}
+	}
+}
+
+void equacao_sub (float a, float b, float c)
+{	
+	for (int x = 0; (a * x) <= c; x++)
+	{
+		for (int y = 0; (b * y) <= c; y++)
+		{
+			if (a * x - b * y == c)
+				printf("x = %d e y = %d\n", x, y);
+		}
+	}
+}
+
+void equacao_mult (float a, float b, float c)
+{	
+	for (int x = 0; (a * x) <= c; x++)
+	{
+		for (int y = 0; (b * y) <= c; y++)
+		{
+			if ((a * x) * (b * y) == c)
+				printf("x = %d e y = %d\n", x, y);
+		}
+	}
+}
+
+void equacao_div (float a, float b, float c)
+{	
+	for (int x = 0; (a * x) <= c; x++)
+	{
+		for (int y = 0; (b * y) <= c; y++)
+		{
+			if ((a * x) / (b * y) == c)
+				printf("x = %d e y = %d\n", x, y);
+		}
+	}
+}
+
+//##############################################################################
+
+void sobre ()
+{
+	printf ("\n-----------------------------------------------------\n\n");
+	
+	printf ("\n\n#### EQUACAO DIOFANTINA ####\n\n");
+	printf ("Na matematica, uma equacao Diofantina eh uma equacao polinomial que permite a duas ou mais variaveis assumirem apenas valores inteiros.\n");
+	printf ("Uma equacao linear Diofantina eh uma equacao entre duas somas de monomios de grau zero ou um.\n");
+	
+	printf ("\n\n######### PROGRAMA #########\n\n");
+	printf ("Este programa resolve equacoes Diofantinas\n");
+	printf ("Modelo de uma equacao Diofantinas: Ax + By = C\n");
+	printf ("Onde: A, B e C sao valores conhecidos e deseja-se descobrir X e Y\n");
+	
+	printf ("\n\n######### COMO USAR #########\n\n");
+	printf ("1 - No menu principal, escolha a opcao '1'\n");
+	printf ("2 - Digite o valor de A (primeiro valor conhecido)\n");
+	printf ("3 - Digite o valor de B (segundo valor conhecido)\n");
+	printf ("4 - Digite o valor de C (o resultado da equacao)\n");
+	printf ("5 - Confirme se sua equacao esta correta\n");
+		
+	printf ("\n\n####### DESENVOLVEDOR #######\n\n");
+	printf ("Lucas Lopes, 20\n");
+	printf ("Rio de Janeiro, Brazil\n");
+	
+	printf ("\n-----------------------------------------------------\n\n");
+}
+
+//##############################################################################
+
+bool verifica (float a, float b, float c, char operador)
+{	
+	int opcao = 1;
+	
+	printf ("\n-----------------------------------------------------\n\n");
+	
+	printf ("Esta e sua equacao:\n\n");
+	printf ("(%.2f * x) %c (%.2f * y) = %.2f\n\n", a, operador, b, c);
+	printf ("Ela esta correta?\n\n");
+
+	printf ("[1] - Sim - [1]\n");
+	printf ("[0] - Nao - [0]\n\n");
+	
+	printf ("Digite sua opcao: ");
+
+	scanf ("%d", &opcao);
+
+	switch (opcao)
+	{
+		case 1:
+			return true;
+			break;
+
+		case 0:
+			return false;
+			break;
+
+		default:
+			printf("\nOpcao invalida.\n\n");
+
+			system("pause");
+			system("cls");
+			break;
+	}	
+}
+
+//##############################################################################
+
+void coleta_num (int opcao, char operador)
+{
+	float a, b, c;
+	
+	printf ("\n-----------------------------------------------------\n\n");
+	
+	printf ("Informe o primeiro valor: ");
+	scanf ("%f", &a);
+
+	printf ("\nInforme o segundo valor: ");
+	scanf ("%f", &b);
+
+	printf ("\nInforme o resultado da equacao: ");
+	scanf ("%f", &c);
+	
+	if ( verifica (a, b, c, operador) )
+	{
+		switch (opcao)
+		{
+			case 1:
+				printf ("\n-----------------------------------------------------\n\n");
+				
+				printf ("Possiveis resultados:\n\n");
+				equacao_soma (a, b, c);
+				
+				printf ("\n-----------------------------------------------------\n\n");
+
+				system("pause");
+				system("cls");
+				break;
+
+			case 2:
+				printf ("\n-----------------------------------------------------\n\n");
+				
+				printf ("Possiveis resultados:\n\n");
+				equacao_sub (a, b, c);
+				
+				printf ("\n-----------------------------------------------------\n\n");
+
+				system("pause");
+				system("cls");
+				break;
+			case 3:
+				printf ("\n-----------------------------------------------------\n\n");
+				
+				printf ("Possiveis resultados:\n\n");
+				equacao_mult (a, b, c);
+				
+				printf ("\n-----------------------------------------------------\n\n");
+
+				system("pause");
+				system("cls");
+				break;
+			case 4:
+				printf ("\n-----------------------------------------------------\n\n");
+				
+				printf ("Possiveis resultados:\n\n");
+				equacao_div (a, b, c);
+				
+				printf ("\n-----------------------------------------------------\n\n");
+
+				system("pause");
+				system("cls");
+				break;
+
+			default:
+				printf("\nErro.\n\n");
+
+				break;
+		}	
+	}
+}
+
+//##############################################################################
+
+void escolhe_sinal ()
+{	
+	int opcao = 1;
+	char operador;
+	
+	printf ("\n-----------------------------------------------------\n\n");
+	printf ("Qual operacao voce gostaria de realizar?\n\n");
+
+	printf ("[1] -      Soma     - [1]\n");
+	printf ("[2] -   Subtracao   - [2]\n");
+	printf ("[3] - Multiplicacao - [3]\n");
+	printf ("[4] -    Divisao    - [4]\n\n");
+	
+	printf ("[0] -     Voltar    - [0]\n\n");
+	
+	printf ("Digite sua opcao: ");
+
+	scanf ("%d", &opcao);
+
+	switch (opcao)
+	{
+		case 1:
+			operador = '+';
+			coleta_num (1, operador);
+			printf("\n\n");
+			
+			system("pause");
+			system("cls");
+			break;
+
+		case 2:
+			operador = '-';
+			coleta_num (2, operador);
+			printf("\n\n");
+
+			system("pause");
+			system("cls");
+			break;
+		case 3:
+			operador = '*';
+			coleta_num (3, operador);
+			printf("\n\n");
+
+			system("pause");
+			system("cls");
+			break;
+		case 4:
+			operador = '/';
+			coleta_num (4, operador);
+			printf("\n\n");
+
+			system("pause");
+			system("cls");
+			break;
+			
+		case 0:
+			printf("\nVoltando...\n\n");
+
+			break;
+
+		default:
+			printf("\nOpcao invalida.\n\n");
+
+			system("pause");
+			system("cls");
+			break;
+	}	
+}
+
+//##############################################################################
+
+void menu ()
+{
+	int opcao = 1;
+	
+	while (opcao != 0)
+	{
+		printf ("#### EQUACAO DIOFANTINA ####\n\n");
+
+		printf ("[1] - Resolver Equacao - [1]\n");
+		printf ("[2] -      Sobre       - [2]\n\n");
+		
+		printf ("[0] - Sair do programa - [0]\n\n");
+
+		printf ("Digite sua opcao: ");
+		scanf ("%d", &opcao);
+
+		switch (opcao)
+		{
+			case 1:
+				escolhe_sinal ();
+				
+				system("pause");
+				system("cls");
+				break;	
+
+			case 2:
+				sobre();
+				
+				system("pause");
+				system("cls");
+				break;
+			
+			case 0:
+				printf("\nSaindo do programa...\n\n");
+
+				break;
+
+			default:
+				printf("\nOpcao invalida.\n\n");
+
+				system("pause");
+				system("cls");
+				break;
+		}
+	}
+}
+
+//##############################################################################
+
+int main (int argc, char const *argv[])
+{
+	menu();
+	return 0;
+}
