@@ -53,9 +53,16 @@ void equacao_div (float a, float b, float c)
 
 //##############################################################################
 
-void sobre ()
+void separador ()
 {
 	printf ("\n-----------------------------------------------------\n\n");
+}
+
+//##############################################################################
+
+void sobre ()
+{
+	separador();
 	
 	printf ("\n\n#### EQUACAO DIOFANTINA ####\n\n");
 	printf ("Na matematica, uma equacao Diofantina eh uma equacao polinomial que permite a duas ou mais variaveis assumirem apenas valores inteiros.\n");
@@ -77,7 +84,7 @@ void sobre ()
 	printf ("Lucas Lopes, 20\n");
 	printf ("Rio de Janeiro, Brazil\n");
 	
-	printf ("\n-----------------------------------------------------\n\n");
+	separador();
 }
 
 //##############################################################################
@@ -86,7 +93,7 @@ bool verifica (float a, float b, float c, char operador)
 {	
 	int opcao = 1;
 	
-	printf ("\n-----------------------------------------------------\n\n");
+	separador();
 	
 	printf ("Esta e sua equacao:\n\n");
 	printf ("(%.2f * x) %c (%.2f * y) = %.2f\n\n", a, operador, b, c);
@@ -124,7 +131,7 @@ void coleta_num (int opcao, char operador)
 {
 	float a, b, c;
 	
-	printf ("\n-----------------------------------------------------\n\n");
+	separador();
 	
 	printf ("Informe o primeiro valor: ");
 	scanf ("%f", &a);
@@ -140,46 +147,38 @@ void coleta_num (int opcao, char operador)
 		switch (opcao)
 		{
 			case 1:
-				printf ("\n-----------------------------------------------------\n\n");
-				
+				separador();				
 				printf ("Possiveis resultados:\n\n");
-				equacao_soma (a, b, c);
-				
-				printf ("\n-----------------------------------------------------\n\n");
+				equacao_soma (a, b, c);				
+				separador();
 
 				system("pause");
 				system("cls");
 				break;
 
 			case 2:
-				printf ("\n-----------------------------------------------------\n\n");
-				
+				separador();				
 				printf ("Possiveis resultados:\n\n");
-				equacao_sub (a, b, c);
-				
-				printf ("\n-----------------------------------------------------\n\n");
+				equacao_sub (a, b, c);				
+				separador();
 
 				system("pause");
 				system("cls");
 				break;
 			case 3:
-				printf ("\n-----------------------------------------------------\n\n");
-				
+				separador();				
 				printf ("Possiveis resultados:\n\n");
 				equacao_mult (a, b, c);
-				
-				printf ("\n-----------------------------------------------------\n\n");
+				separador();
 
 				system("pause");
 				system("cls");
 				break;
 			case 4:
-				printf ("\n-----------------------------------------------------\n\n");
-				
+				separador();				
 				printf ("Possiveis resultados:\n\n");
-				equacao_div (a, b, c);
-				
-				printf ("\n-----------------------------------------------------\n\n");
+				equacao_div (a, b, c);				
+				separador();
 
 				system("pause");
 				system("cls");
@@ -200,7 +199,7 @@ void escolhe_sinal ()
 	int opcao = 1;
 	char operador;
 	
-	printf ("\n-----------------------------------------------------\n\n");
+	separador();
 	printf ("Qual operacao voce gostaria de realizar?\n\n");
 
 	printf ("[1] -      Soma     - [1]\n");
